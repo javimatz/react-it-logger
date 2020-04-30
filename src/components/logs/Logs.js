@@ -24,9 +24,18 @@ const Logs = () => {
   }
 
   return (
-    <div>
+    <ul className="collection-with-header">
+    	<li className="collection-header">
+    		<h4 className="center">Systems Logs</h4>
+    	</li>
+    	{ 	!loading && logs.length === 0 ? (
+    			<p className='center'>No logs to show</p>
+    		) : (
+    			logs.map( log => <li>{log.message}</li> )
+    		)
 
-    </div>
+    	}
+    </ul>
   );
 }
 
