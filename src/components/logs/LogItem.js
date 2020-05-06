@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 const LogItem = ({ log }) => {
   
-	const dateToFormat = '1976-04-19T12:59-0500';
-
 	return (
 	<li className='collection-item'>
 	  <div>
@@ -19,7 +17,7 @@ const LogItem = ({ log }) => {
 	     <span className='grey-text'>
 	     	<span className='black-text'>ID #{log.id}</span> last updated by{' '}
 	     	<span className='black-text'>{log.tech}</span> on{' '}
-	     	{Moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}
+	     	{ Moment().format("dddd, MMMM Do YYYY, h:mm:ss a") }
 	  	</span>
 	  	<a href='#!' className='secondary-content'>
 	  		<i className='material-icons grey-text' >delete</i>
