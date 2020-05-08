@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { connect } from 'react-redux';
+import { updateLog } from '../../actions/logActions';
+import PropTypes from 'prop-types';
 
-const EditLogModal = () => {
+const EditLogModal = ({ current, updateLog }) => {
   
 	const [message, setMessage] = useState('');
 	const [attention, setAttention] = useState(false);
@@ -89,4 +92,16 @@ const modalStyle = {
 	height: '75%'
 };
 
-export default EditLogModal;
+EditLogModal.propTypes = {
+	current: PropTypes.object,
+	updateLog: PropTypes.func.isRequired	
+}
+
+const mapStateToProps = (state) => ({
+	current: state.log.current
+});
+
+export default connect( 
+	mapStateToProps, 
+	{updateLog}
+)(EditLogModal);
