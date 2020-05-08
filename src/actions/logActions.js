@@ -1,4 +1,13 @@
-import { GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOG, DELETE_LOG } from './types';
+import { 
+	GET_LOGS, 
+	SET_LOADING, 
+	LOGS_ERROR, 
+	ADD_LOG, 
+	UPDATE_LOG,
+	DELETE_LOG,
+	SET_CURRENT,
+	CLEAR_CURRENT
+} from './types';
 
 // Get logs from server
 export const getLogs = () => async (dispatch) => {
@@ -74,6 +83,20 @@ export const deleteLog = (id) => async (dispatch) => {
 	}
 }
 
+// Set current log
+export const setCurrent = (log) => {
+	dispatch({
+		type: SET_CURRENT,
+		payload: log
+	});
+} 
+
+// Clear current log
+export const clearCurrent = (log) => {
+	dispatch({
+		type: CLEAR_CURRENT
+	});
+} 
 
 // Set loading to true
 export const setLoading = () => {
