@@ -50,7 +50,7 @@ export const addTech = (tech) => async (dispatch) => {
 
 	} catch(err) {
 		dispatch({
-			type: LOGS_ERROR,
+			type: TECHS_ERROR,
 			payload: err.response.data
 		});
 	}
@@ -71,9 +71,15 @@ export const deleteTech = (id) => async (dispatch) => {
 
 	} catch(err) {
 		dispatch({
-			type: LOGS_ERROR,
+			type: TECHS_ERROR,
 			payload: err.response.data
 		});
 	}
 }
 
+// Set loading to true
+export const setLoading = () => {
+	return {
+		type: SET_LOADING
+	}
+}
