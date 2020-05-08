@@ -32,6 +32,7 @@ export const getTechs = () => async (dispatch) => {
 export const addTech = (tech) => async (dispatch) => {
 
 	try {
+		setLoading();
 
 		const res = await fetch('/techs', {
 			method: 'POST',
@@ -51,7 +52,7 @@ export const addTech = (tech) => async (dispatch) => {
 	} catch(err) {
 		dispatch({
 			type: TECHS_ERROR,
-			payload: err.response.data
+			payload: err.response.statusResponse
 		});
 	}
 }
